@@ -1,0 +1,79 @@
+﻿@model TechArchFillingSystem.GeneralSettings.Authentication.UserLoginResource
+ 
+@{
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
+}
+
+<div class="row chrome">
+    <div class="col-md-12">
+        <div class="card card-product">
+            <div class="card-body">
+                <div class="bg-circle"></div>
+
+                <div class="row">
+                    <div class="chrome col-lg-6 col-md-12 col-sm-6 ml-lg-6 ml-md-6">
+                        <div class="logo">
+                            <div class="logo">
+                                <img src="~/img/logo/pcl_logo.png" style="width: 46%;height: auto;" /><br />
+                            </div>
+                        </div>
+                        <!--Grid row-->
+                        <div class="row pb-4">
+                            <div class="chrome col-12">
+                                <p class="">
+                                    Welcome to Press Corporation PLC
+                                    web portal.
+                                </p>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+                    </div>
+                    <div class="chrome col-lg-6 col-md-12 col-sm-6 ml-lg-6 ml-md-6">
+
+                        <form asp-controller="Account" asp-action="Login" method="post">
+
+                            @if (Model.OutputHandler.IsErrorOccured)
+                            {
+                                <span class="h4-title text-danger">@Model.OutputHandler.Message</span>
+                            }
+                            <h6 class="card-category text-gray">LOGIN</h6>
+                            <h4 class="card-title">Please enter your credentials</h4>
+
+                            <p class="card-description">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                            <input asp-for="Email" class="chrome form-control" placeholder="Username">
+                                            <span class="bmd-help chrome">
+                                                Please enter your username
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                            <input asp-for="Password" type="password" class="form-control " placeholder="Password">
+                                            <span class="bmd-help">
+                                                Please enter a correct password
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                            <div class="align-content-center pt-4">
+                                <button type="submit" class="btn btn-outline-primary chrome pull-center" >Login</button>
+                            </div>
+
+                            <a class="chrome" asp-action="ResetPassword">Reset Password</a>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

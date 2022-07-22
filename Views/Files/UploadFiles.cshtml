@@ -1,0 +1,66 @@
+﻿@model TechArchFillingSystem.Models.GeneralViewModel
+@{
+    ViewData["Title"] = "FileUpload";
+
+ }
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Upload Files</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-profile">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Members Files</h4>
+                <p class="card-category">Click Browse and Select files to upload</p>
+            </div>
+            @if(ViewBag.Message != null)
+            {
+                <p class="font-weight-bold"> @ViewBag.Message </p>
+            }
+         
+            <div class="card-body">
+                <div asp-validation-summary="All" class="error text-danger"></div>
+                <form asp-controller="Files" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                         <div class="col-md-6">
+                            <label>Clients</label>
+                            <select class="form-control form-control-sm" required asp-for="@Model.FileDetail.DepartmentId"
+                                    asp-items="@(new SelectList(Model.Clients, "ClientId", "ClientName") )"></select>
+                        </div>
+                         <div class="col-md-6">
+                            <label>Month</label>
+                            <select class="form-control form-control-sm" required asp-for="@Model.FileDetail.Month"
+                                    asp-items="@(new SelectList(Model.Months, "Name", "Name") )"></select>
+                        </div>
+                       
+                    </div>
+
+                     <div class="row">
+                         
+                         <div class="col-md-6">
+                            <label>File Type Categories</label>
+                            <select class="form-control form-control-sm" required asp-for="@Model.FileDetail.FileTypeCategoryId"
+                                    asp-items="@(new SelectList(Model.FileTypeCategories, "FileTypeCategoryId", "FileTypeCategoryDescription") )"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>File Description</label>
+                            <input type="text" asp-for="FileDetail.FileName" placeholder="Enter the file description" class="form-control form-control-sm" />
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <input class="pt-2 btn btn-outline-info btn-sm text-dark" id="pdfDoc" type="file" name="pdfDoc" accept="application/pdf" required />
+                    <button input class="pt-2 btn btn-outline-info btn-sm text-dark" type="submit">Import</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <h1 class="display-4">Press Corporation LTD</h1>
+    <img src="~/img/logo/pcl_logo.png" width="250px" height="250px" />
+</div>

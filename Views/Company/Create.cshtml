@@ -1,0 +1,46 @@
+﻿@model TFSDataAccessLayer.DTO.CompanyDTO
+@{
+    ViewData["Title"] = "Create";
+}
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li class="breadcrumb-item"><a asp-action="Index">Company</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
+
+<h1>Create</h1>
+
+<div class="card">
+    <div class="card-header">
+        <p class="info text-danger">@ViewBag.Message</p>
+        <div class="row">
+            <div class="col-12 text-right">
+                <a asp-action="Index" class="btn btn-sm btn-simple m-2 animation-on-hover">  <i class="tim-icons icon-bullet-list-67"></i> Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row ">
+                <div class="form-group col-md-6">
+                    <label for="fileType">Company Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" asp-for="CompanyName" placeholder="Enter File Type Description" required>
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                </div> 
+                <div class="form-group col-md-6">
+                    <label for="fileType">Phone Number</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" asp-for="CompanyContact" placeholder="Enter File Type Description" required>
+                        <span asp-validation-for="CompanyContact" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>

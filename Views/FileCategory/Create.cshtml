@@ -1,0 +1,54 @@
+﻿@model TechArchFillingSystem.Models.GeneralViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li class="breadcrumb-item"><a asp-action="Index">File Type Category</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
+
+<h1>Create</h1>
+
+<div class="card">
+    <div class="card-header">
+        <p class="info text-danger">@ViewBag.Message</p>
+        <div class="row">
+            <div class="col-12 text-right">
+                <a asp-action="Index" class="btn btn-sm btn-simple m-2 animation-on-hover">  <i class="tim-icons icon-bullet-list-67"></i> Back</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            @*<input asp-for="FileTypeCategory.FileTypeCategoryId" hidden />*@
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <h6>Section/Department Name</h6>
+                    <div class="input-group">
+                        <select class="form-control form-control-sm" required asp-for="@Model.FileTypeCategory.DepartmentId"
+                                asp-items="@(new SelectList(Model.Departments, "DepartmentId", "DepartmentName") )"></select>
+                        <span asp-validation-for="@Model.FileTypeCategory.DepartmentId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h6>File Types</h6>
+                    <select class="form-control form-control-sm" required asp-for="@Model.FileTypeCategory.FileTypeId"
+                            asp-items="@(new SelectList(Model.FileTypes, "FileTypeId", "FileTypeDescription") )"></select>
+                </div>
+                <div class="col-md-4">
+
+                    <h6>File Types Category</h6>
+                    <input asp-for="FileTypeCategory.FileTypeCategoryDescription" placeholder="Enter File Type Description" required />
+                </div>
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary text-right">Save</button>
+        </form>
+    </div>
+</div>

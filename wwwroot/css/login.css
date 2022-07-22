@@ -1,0 +1,105 @@
+﻿/*----- Circle formating 9c27b0 ----*/
+.bg-circle {
+    position: absolute;
+    background-color: #25B430;
+    background-image: -webkit-linear-gradient(350deg, #25B430, #1BA94D);
+    background-image: linear-gradient(100deg, #191434, #191434);
+    top: -400px;
+    left: -350px;
+    border-radius: 100%;
+    height: 600px;
+    width: 600px;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+@media screen and (min-width:0px) and (max-width: 320) and (orientation: portrait) {
+    .chrome {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: red;
+    }
+}
+@media (max-width: 991px) {
+    .bg-circle {
+        height: 400px;
+        width: 400px;
+        top: -200px;
+        left: -200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .bg-circle {
+        display: none;
+    }
+}
+
+.sm-circle {
+    position: absolute;
+    background-color: #25B430;
+    background-image: -webkit-linear-gradient(350deg, #25B430, #1BA94D);
+    background-image: -o-linear-gradient(350deg, #25B430, #1BA94D);
+    background-image: linear-gradient(100deg, #25B430, #1BA94D);
+    top: -200px;
+    left: -130px;
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/*----- Circle formating ----*/
+
+
+body {
+    margin: 0;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.outer-div {
+    padding: 40px;
+    padding-top: 30px;
+}
+.main-panel {
+    width: 100%;
+}
+    /*.left-login {
+    background-image: url("../img/sidebar-1.jpg");
+    background-color: white;
+   color: purple;
+}*/
